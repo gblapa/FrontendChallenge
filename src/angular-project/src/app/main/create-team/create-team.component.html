@@ -1,9 +1,9 @@
 
 <h3>Cadastro de times</h3>
 <form [formGroup]="timeForm" style="margin-bottom: 30px;">
-    <input type="text" formControlName="nome" placeholder="nome do time" style="margin-right: 10px;">
+    <input type="text" formControlName="nome" placeholder="nome do time" style="margin-right: 10px;" >
 
-    <input type="text" formControlName="classificacao" placeholder="classificação" >
+    <input type="text" formControlName="classificacao" placeholder="classificação">
 </form>
 
 <button mat-raised-button (click)="addTime()" style="background-color: green; color: white; font-weight: bold; margin-right: 10px;"><mat-icon>add</mat-icon>Adicionar time</button>
