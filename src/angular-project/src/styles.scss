@@ -15,9 +15,17 @@ input {
   }
 
   .mdc-snackbar__surface{
-    background-color: #ff9307 !important; /* Cor de fundo amarela para aviso de warning */
+    background-color: transparent !important; /* Cor de fundo amarela para aviso de warning */
     color: #fff !important; /* Cor do texto */
     font-weight: bold !important;
+  }
+
+  .sucess-snackbar {
+    background-color: rgb(0, 122, 204)
+  }
+
+  .warning-snackbar {
+    background-color: rgb(231, 127, 7);
   }
  
   
