@@ -55,7 +55,7 @@ export class TorneioComponent {
     const pontuacaoTime1 = this.torneioForm.get('pontuacaoTime1')?.value;
     const pontuacaoTime2 = this.torneioForm.get('pontuacaoTime2')?.value;
   
-    if (pontuacaoTime1 !== null && pontuacaoTime2 !== null) {
+    if (this.torneioForm.get('selectedTime1')?.value !== null && this.torneioForm.get('selectedTime2')?.value !== null) {
       if (pontuacaoTime1 > pontuacaoTime2) {
         this.vencedor1 = this.torneioForm.get('selectedTime1')?.value;
         this.btnRodada1 = false
@@ -81,7 +81,7 @@ export class TorneioComponent {
     const pontuacaoTime3 = this.torneioForm.get('pontuacaoTime3')?.value;
     const pontuacaoTime4 = this.torneioForm.get('pontuacaoTime4')?.value;
   
-    if (pontuacaoTime3 !== null && pontuacaoTime4 !== null) {
+    if (this.torneioForm.get('selectedTime3')?.value !== null && this.torneioForm.get('selectedTime4')?.value !== null) {
       if (pontuacaoTime3 > pontuacaoTime4) {
         this.vencedor2 = this.torneioForm.get('selectedTime3')?.value;
         this.btnRodada2 = false
