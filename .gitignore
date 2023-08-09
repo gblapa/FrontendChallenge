@@ -275,3 +275,7 @@ __pycache__/
 # tools/
 Contact GitHub API Training Shop Blog About
 © 2016 GitHub, Inc. Terms Privacy Security Status Help
+babel-webpack
+
+#ignorar arquivos cache angular
+.angular/
