@@ -1,7 +1,10 @@
 import { Time } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { TimeService } from 'src/app/time.service';
+import { ModalVencedorFinalComponent } from '../modal-vencedor-final/modal-vencedor-final.component';
+import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition  } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-torneio',
@@ -9,6 +12,8 @@ import { TimeService } from 'src/app/time.service';
   styleUrls: ['./torneio.component.scss']
 })
 export class TorneioComponent {
+  private horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  private verticalPosition: MatSnackBarVerticalPosition = 'top';
   times: any
   vencedor1: any
   vencedor2: any
@@ -18,10 +23,11 @@ export class TorneioComponent {
   selectedTime2: Time | null = null;
   btnRodada1 = true
   btnRodada2 = true
-  /* btnRodadaFinal = false */
+  dialog: any
+ 
 
+  constructor(private _timesService: TimeService, private fb: FormBuilder, private _matDialog: MatDialog, private _snackBar: MatSnackBar){
 
-  constructor(private _timesService: TimeService, private fb: FormBuilder){
     this.torneioForm = this.fb.group({
       pontuacaoTime1:  0,
       pontuacaoTime2: 0,
@@ -45,7 +51,7 @@ export class TorneioComponent {
 
 
   iniciarRodada1() {
-    //debugger;
+
     const pontuacaoTime1 = this.torneioForm.get('pontuacaoTime1')?.value;
     const pontuacaoTime2 = this.torneioForm.get('pontuacaoTime2')?.value;
   
@@ -57,8 +63,14 @@ export class TorneioComponent {
         this.vencedor1 = this.torneioForm.get('selectedTime2')?.value;
         this.btnRodada1 = false
       } else {
-        this.vencedor1 = null; // Empate
+        this.vencedor1 = null; 
         this.btnRodada1 = true
+        this._snackBar.open('As pontuações não podem ser iguais', 'Fechar', {
+          duration: 3000,
+          panelClass: ['warning-snackbar'], 
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition, 
+        });
       }
     }
     
@@ -77,8 +89,14 @@ export class TorneioComponent {
         this.vencedor2 = this.torneioForm.get('selectedTime4')?.value;
         this.btnRodada2 = false
       } else {
-        this.vencedor2 = null; // Empate
+        this.vencedor2 = null; 
         this.btnRodada2 = true
+        this._snackBar.open('As pontuações não podem ser iguais', 'Fechar', {
+          duration: 3000,
+          panelClass: ['warning-snackbar'], 
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition, 
+        });
       }
     }
     
@@ -91,15 +109,24 @@ export class TorneioComponent {
     if (pontuacaoRodada1 !== null && pontuacaoRodada2 !== null) {
       if (pontuacaoRodada1 > pontuacaoRodada2) {
         this.vencedorFinal = this.torneioForm.get('timeVencedor1')?.value;
-        /* this.btnRodadaFinal = false */
+       
       } else if (pontuacaoRodada2 > pontuacaoRodada1) {
         this.vencedorFinal = this.torneioForm.get('timeVencedor2')?.value;
-        /* this.btnRodadaFinal = false */
+        
       } else {
-        this.vencedorFinal = null; // Empate
-        /* this.btnRodadaFinal = true */
+        this.vencedorFinal = null; 
+        this._snackBar.open('As pontuações não podem ser iguais', 'Fechar', {
+          duration: 3000,
+          panelClass: ['warning-snackbar'], 
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition, 
+        });
+       
       }
     }
+    this.dialog = this._matDialog.open(ModalVencedorFinalComponent, {
+      data: { vencedorFinal: this.vencedorFinal  },
+    });
   }
 
 }

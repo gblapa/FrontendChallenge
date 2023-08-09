@@ -65,64 +65,6 @@ export class CreateTeamComponent {
     });
   }
 }
-/* 
-  ngOnInit() {
-    this.loadTimes() 
-    console.log(this.times)
 
-  }
-
-  loadTimes() {
-    const storedTimes = localStorage.getItem('times');
-    if (storedTimes) {
-      this.times = JSON.parse(storedTimes);
-    }
-  }
-
-  limparAlista() {
-    this.times = []
-    localStorage.removeItem('times'); 
-  }
-
-  addTime() {
-    //debugger
-    let maxId
-    if(this.times.length > 0) {
-       maxId = this.times[this.times.length - 1].id
-    }
-    else{
-      maxId = 0
-    }
-    const newTime = {
-      id: maxId + 1,
-      nome: this.timeForm.get('nome')?.value,
-      classificacao: this.timeForm.get('classificacao')?.value
-    };
-
-    this.times.push(newTime);
-
-    this.timeForm.reset();
-
-    localStorage.setItem('times', JSON.stringify(this.times));
-    console.log(this.times)
-  }
-
-  openModal(time: any){
-    console.log(time)
-    this.dialog = this._matDialog.open(EditTeamComponent, {
-      data: { time: time } // Passa o objeto time para o modal
-    });
-
-    this.dialog.afterClosed().subscribe((updatedTime: any) => {
-      if (updatedTime) {
-        const index = this.times.findIndex(t => t.id === updatedTime.id);
-        if (index !== -1) {
-          this.times[index] = updatedTime;
-          localStorage.setItem('times', JSON.stringify(this.times)); // Atualiza os dados no LocalStorage
-        }
-      }
-    });
-    
-  } */
 
 

@@ -38,7 +38,6 @@ export class EditTeamComponent {
         classificacao: this.timeEditForm.get('classificacao')?.value
     }
 
-    //this.team.push(timeEditado);
 
     this.dialog.close(timeEditado);
   }
