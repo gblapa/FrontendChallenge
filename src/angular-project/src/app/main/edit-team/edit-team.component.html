@@ -1,0 +1,10 @@
+<p>edit-team works!</p>
+
+<h3>Atualizar o time {{data.time.nome}}</h3>
+<form [formGroup]="timeEditForm">
+    <input type="text" placeholder="nome" formControlName="nome" >
+    <input type="text" placeholder="classificacao" formControlName="classificacao">
+
+    <button mat-raised-button (click)="update()" style="background-color: green; color: white; font-weight: bold;">Atualizar</button>
+
+</form>
