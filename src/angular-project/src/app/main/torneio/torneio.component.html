@@ -1,0 +1,103 @@
+    <form [formGroup]="torneioForm" >
+        <div style="margin-bottom: 150px;">
+            <div>
+                <mat-form-field>
+                    <mat-label>Time 1</mat-label>
+                    <mat-select  formControlName="selectedTime1">
+                    <mat-option *ngFor="let time of times" [value]="time" >{{ time.nome }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+        
+                <input type="number" placeholder="pontuação" formControlName="pontuacaoTime1">
+            </div>
+          
+            <div>
+                <mat-form-field>
+                    <mat-label>Time 2</mat-label>
+                    <mat-select  formControlName="selectedTime2">
+                    <mat-option *ngFor="let time of times" [value]="time" >{{ time.nome }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            
+                <input type="number" placeholder="pontuação" formControlName="pontuacaoTime2">
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; margin-left: 50px;">
+                <button *ngIf="btnRodada1" mat-raised-button (click)="iniciarRodada1()" style="background-color: green; color: white; font-weight: bold;">Play</button>
+    
+                <div *ngIf="vencedor1 != null">
+                    <p>Time vencedor da rodada 1: <strong>{{ vencedor1.nome }}</strong></p>
+                    <mat-form-field>
+                        
+                        <mat-select  formControlName="timeVencedor1">
+                        <mat-option [value]="vencedor1" >{{ vencedor1.nome }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <input type="number" placeholder="pontuação" formControlName="pontuacaoRodada1">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Time 3</mat-label>
+                    <mat-select  formControlName="selectedTime3">
+                    <mat-option *ngFor="let time of times" [value]="time" >{{ time.nome }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+        
+                <input type="number" placeholder="pontuação" formControlName="pontuacaoTime3">
+            </div>
+          
+            <div>
+                <mat-form-field>
+                    <mat-label>Time 4</mat-label>
+                    <mat-select  formControlName="selectedTime4">
+                    <mat-option *ngFor="let time of times" [value]="time" >{{ time.nome }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            
+                <input type="number" placeholder="pontuação" formControlName="pontuacaoTime4">
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; margin-left: 50px;">
+                <button *ngIf="btnRodada2" mat-raised-button (click)="iniciarRodada2()" style="background-color: green; color: white; font-weight: bold;">Play</button>
+    
+                <div *ngIf="vencedor2 != null">
+                    <p>Time vencedor da rodada 2: <strong>{{ vencedor2.nome }}</strong></p>
+                    <mat-form-field>
+                        
+                        <mat-select  formControlName="timeVencedor2">
+                        <mat-option [value]="vencedor2" >{{ vencedor2.nome }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <input type="number" placeholder="pontuação" formControlName="pontuacaoRodada2">
+                </div>
+            </div>
+        </div>
+        
+        
+    </form>
+
+    <div style="display: flex; align-items: center; justify-content: center; margin-left: 50px;">
+        <button *ngIf="btnRodada1 == false && btnRodada2 == false" mat-raised-button (click)="iniciarRodadaFinal()" style="background-color: green; color: white; font-weight: bold;">Play final</button>
+
+        <div *ngIf="vencedorFinal != null">
+            <p>O time vencedor!!!: <strong>{{ vencedorFinal.nome }}</strong></p>
+            <mat-form-field>
+                
+                <mat-select >
+                <mat-option [value]="vencedorFinal" >{{ vencedorFinal.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- <input type="number" placeholder="pontuação" formControlName="pontuacaoTime3"> -->
+        </div>
+    </div>
+    
+
