@@ -1,3 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+input {
+    border: solid 2px #a79e9ead;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .mdc-snackbar__surface{
+    background-color: #ff9307 !important; /* Cor de fundo amarela para aviso de warning */
+    color: #fff !important; /* Cor do texto */
+    font-weight: bold !important;
+  }
+ 
+  
+  
+  
+  
+  

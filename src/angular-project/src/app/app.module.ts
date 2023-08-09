@@ -9,13 +9,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { AppComponent } from './app.component';
 import { CreateTeamComponent } from './main/create-team/create-team.component';
 import { TorneioComponent } from './main/torneio/torneio.component';
 import { EditTeamComponent } from './main/edit-team/edit-team.component';
+import { ModalVencedorFinalComponent } from './main/modal-vencedor-final/modal-vencedor-final.component';
 
 
 
@@ -24,7 +26,8 @@ import { EditTeamComponent } from './main/edit-team/edit-team.component';
     AppComponent,
     CreateTeamComponent,
     TorneioComponent,
-    EditTeamComponent
+    EditTeamComponent,
+    ModalVencedorFinalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { EditTeamComponent } from './main/edit-team/edit-team.component';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
