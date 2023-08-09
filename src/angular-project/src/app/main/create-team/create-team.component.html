@@ -1,21 +1,24 @@
 
 <h3>Cadastro de times</h3>
-<form [formGroup]="timeForm">
-    <input type="text" formControlName="nome" placeholder="nome do time">
+<form [formGroup]="timeForm" style="margin-bottom: 30px;">
+    <input type="text" formControlName="nome" placeholder="nome do time" style="margin-right: 10px;">
 
     <input type="text" formControlName="classificacao" placeholder="classificação" >
 </form>
 
+<button mat-raised-button (click)="addTime()" style="background-color: green; color: white; font-weight: bold; margin-right: 10px;"><mat-icon>add</mat-icon>Adicionar time</button>
+
+ <button mat-raised-button (click)="limparAlista()" style="background-color: red; color: white; font-weight: bold;"><mat-icon>delete</mat-icon>Limpar a lista</button>
+
+<h3>Lista de times</h3>
 <ul>
-    <li *ngFor="let time of times">{{ time.nome }} <button mat-raised-button style="background-color: rgb(23, 111, 211); color: white;" (click)="openModal(time)" ><mat-icon style="margin: 0;">edit</mat-icon></button></li>
+    <li style="margin-bottom: 20px;" *ngFor="let time of times">{{ time.nome }} <button mat-raised-button style="background-color: rgb(23, 111, 211); color: white;" (click)="openModal(time)" ><mat-icon style="margin: 0; ">edit</mat-icon></button></li>
     
 </ul>
 
 
 
-<button mat-raised-button (click)="addTime()" style="background-color: green; color: white; font-weight: bold;">Adicionar time</button>
 
-<button mat-raised-button (click)="limparAlista()" style="background-color: green; color: white; font-weight: bold;">Limpar a lista</button>
 
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
